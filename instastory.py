@@ -1,9 +1,10 @@
 from instagram_private_api import Client as PrivateClient
 
 from tinydb import TinyDB, Query
-import urllib.request 
-import time
+import urllib.request
 import datetime
+import time
+import os
 
 db = TinyDB('db.json')
 Story = Query()
