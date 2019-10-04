@@ -22,9 +22,6 @@ while True:
     stories = web_api.reels_tray()
     for origin_stories in stories.get('tray',[]):
       tmp_stories = origin_stories.get('items',[])
-      print(origin_stories['user']['username'])
-      print(len(stories))
-      import pdb;pdb.set_trace()
       for story in tmp_stories[::-1]:
         if len(db.search(Story.id == story['pk'])) == 0:
           path = datetime.datetime.fromtimestamp(float(story['created_time'])).strftime('%D').replace('/','-')+'/'+origin_stories['user']['username']
